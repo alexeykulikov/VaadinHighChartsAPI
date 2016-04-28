@@ -24,6 +24,7 @@ public class HighChartsPlotOptionsImpl implements HighChartsPlotOptions {
     private boolean showCheckBox = false;
     private boolean connectNulls = false;
     private Steps steps = Steps.FALSE;
+    private String format = null;
 
     /**
      * Returns if datalabels are enabled.
@@ -243,6 +244,13 @@ public class HighChartsPlotOptionsImpl implements HighChartsPlotOptions {
         this.steps = steps;
     }
 
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
 
     @Override
     public ChartType getChartType() {
@@ -265,6 +273,9 @@ public class HighChartsPlotOptionsImpl implements HighChartsPlotOptions {
         builder.append(", shadow: " + shadow);
         builder.append(", dataLabels: { ");
         builder.append("enabled: " + dataLabelsEnabled);
+        if (format!=null) {
+            builder.append(", format: '" + format + "'");
+        }
         builder.append(", color: '" + dataLabelsFontColor.getCSS() + "'");
         builder.append(", style: { ");
         builder.append("fontFamily: '" + dataLabelsFont + "'");
