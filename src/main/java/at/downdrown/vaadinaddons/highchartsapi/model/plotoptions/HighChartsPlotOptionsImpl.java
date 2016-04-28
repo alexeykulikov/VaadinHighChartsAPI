@@ -262,6 +262,14 @@ public class HighChartsPlotOptionsImpl implements HighChartsPlotOptions {
         StringBuilder builder = new StringBuilder();
         builder.append(", plotOptions: { ");
         builder.append(chartType.getHighChartValue() + ": { ");
+        preparePlotOptions(builder);
+        builder.append(" }");
+        builder.append(" }");
+        return builder.toString();
+    }
+
+    @Override
+    public void preparePlotOptions(StringBuilder builder) {
         builder.append("allowPointSelect: " + allowPointSelect);
         builder.append(", dashStyle: '" + dashStyle.name() +"'");
         builder.append(", showCheckbox: " + showCheckBox);
@@ -284,9 +292,6 @@ public class HighChartsPlotOptionsImpl implements HighChartsPlotOptions {
         builder.append(", textShadow: " + textShadow);
         builder.append(" }");
         builder.append(" }");
-        builder.append(" }");
-        builder.append(" }");
-        return builder.toString();
     }
 
     public enum DashStyle {

@@ -11,4 +11,5 @@ public interface HighChartsPlotOptions extends HighchartsObject {
 
     ChartType getChartType();
 
+    void preparePlotOptions(StringBuilder builder);
 }
